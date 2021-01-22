@@ -214,3 +214,31 @@ depends_on = [
   )
 }
 
+
+/* 
+# Below code of data "aws_vpc" is fetching existing vpc whose tag value as "datavpc-for-testing"
+
+
+data "aws_vpc" "selected" {
+  filter {
+                name  = "tag:Name"
+                values = ["datavpc-for-testing"]
+        }
+}
+
+In order to use above VPC under for any resource we have to use vpc_id = data.aws_vpc.select.id
+
+resource "aws_subnet" "apppublicsubnet" {
+  count = length(var.publicazs)
+  cidr_block = element(var.publicsubnetcidr, count.index)
+  availability_zone = element(var.publicazs, count.index)
+  vpc_id = data.aws_vpc.selected.id
+  tags = merge(
+    local.common_tags,
+    {
+    Name = "datavpc-for-testing-${var.publicsubnetname}-${count.index+1}"
+   }
+  )
+}
+
+*/
