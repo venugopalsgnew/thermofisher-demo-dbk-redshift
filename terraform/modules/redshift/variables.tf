@@ -3,7 +3,7 @@ variable "application" {
 }
 
 variable "built_by" {
-    default = "thermofisher.com"
+    default = "kpipartners.com"
 }
 
 variable "dd_auto_discovery" {
@@ -15,11 +15,11 @@ variable "infrastructure_support" {
 }
 
 variable "finance_contact" {
-    default = "alejandro.cota@thermofisher.com"
+    default = "naveen.arigapudi@kpipartners.com"
 }
 
 variable "application_owner" {
-    default = "prasada.martala@thermofisher.com"
+    default = "naveen.arigapudi@kpipartners.com"
 }
 
 variable "tranche" {
